@@ -2,7 +2,8 @@
 <html class="dark scroll-smooth" lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#08080c" />
   <title>Nexora+ | Next-Gen Creative Technology &amp; Digital Agency</title>
   <meta name="description" content="Nexora+ — pioneering the intersection of boundary-pushing creativity, AI, and transformative digital engineering for global leaders." />
 
@@ -159,9 +160,183 @@
     @supports (height: 100dvh) {
       #sticky-wrap { height: 100dvh; } /* fixes iOS Safari URL-bar jump */
     }
+    /* Notch / home-indicator safe areas (iOS PWA + Safari) */
+    #nav { padding-top: calc(1.4rem + env(safe-area-inset-top, 0px)); padding-left: max(2.5rem, env(safe-area-inset-left, 0px)); padding-right: max(2.5rem, env(safe-area-inset-right, 0px)); }
+
+    /* ─── HAMBURGER / MOBILE MENU ────────────────────────── */
+    #nav-burger {
+      display: none;
+      width: 44px; height: 44px;                    /* 44px = minimum comfortable tap target */
+      margin-right: -8px;
+      align-items: center; justify-content: center;
+      background: transparent; border: 0; cursor: pointer;
+      color: var(--text);
+    }
+    #nav-burger .material-symbols-outlined { font-size: 28px; }
+    #mobile-menu {
+      position: fixed; inset: 0; z-index: 600;
+      display: flex; flex-direction: column;
+      background: rgba(8,8,12,0.96);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      padding: calc(1.4rem + env(safe-area-inset-top, 0px)) 1.5rem calc(1.6rem + env(safe-area-inset-bottom, 0px));
+      opacity: 0; visibility: hidden; transform: translateY(-12px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    }
+    #mobile-menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .mm-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2.4rem; }
+    .mm-close { width: 44px; height: 44px; margin-right: -8px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; cursor: pointer; color: var(--text); }
+    .mm-close .material-symbols-outlined { font-size: 28px; }
+    .mm-links { display: flex; flex-direction: column; gap: 0.4rem; }
+    .mm-links a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 0.4rem;
+      font-size: 1.25rem; letter-spacing: 0.06em;
+      color: rgba(229,225,231,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.25s ease;
+    }
+    .mm-links a:active, .mm-links a:hover { color: var(--accent); }
+    .mm-links a .material-symbols-outlined { font-size: 18px; color: var(--muted); }
+    .mm-cta {
+      margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      padding: 1rem 1.5rem; border-radius: 999px;
+      border: 1px solid rgba(168,85,247,0.5);
+      color: var(--accent); font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase;
+      min-height: 52px;
+      background: rgba(168,85,247,0.08);
+    }
+    .mm-cta:active { transform: scale(0.98); }
+    .mm-foot { margin-top: 1.2rem; text-align: center; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    body.menu-open { overflow: hidden; }
+
+    @media (max-width: 900px) {
+      #nav { padding-left: max(1.25rem, env(safe-area-inset-left, 0px)); padding-right: max(1.25rem, env(safe-area-inset-right, 0px)); }
+      .nav-links { display: none; }
+      #nav-burger { display: flex; }
+      .nav-logo { font-size: 1.25rem; }
+      .nav-frame-counter { display: none; }  /* frees thumb space, declutters small screens */
+    }
+
+    /* ─── PHONES (≤768px) — spacing, type scale, tap comfort ── */
     @media (max-width: 768px) {
       /* Shorter scrub distance = better pacing with thumb scrolling */
       #scroll-section { height: 420vh; }
+
+      body { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+      /* Frame counter & scroll hint positioning */
+      #frame-label { right: 0.75rem; bottom: 0.75rem; font-size: 0.6rem; }
+      #scroll-hint { bottom: 1.25rem; }
+      .scroll-hint-text { font-size: 0.62rem; letter-spacing: 0.16em; }
+      .scroll-mouse { width: 18px; height: 30px; border-radius: 10px; padding-top: 4px; }
+
+      /* Section rhythm: comfortable spacing on mobile screens */
+      section[id] { scroll-margin-top: 76px; }
+
+      /* Manifesto: keep the oversized type cinematic, not cramped */
+      #manifesto .max-w-7xl { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+      .mnf-statement { font-size: clamp(2.3rem, 10.5vw, 46px); line-height: 1.05; word-break: break-word; }
+      .mnf-pillar { padding: 22px 0; }
+      .mnf-pillar-head { gap: 12px; }
+      .mnf-index { font-size: 13px; }
+      .mnf-pillar h3 { font-size: clamp(1.75rem, 8vw, 36px); letter-spacing: -0.01em; }
+      .mnf-pillar p { font-size: 0.94rem; line-height: 1.55; color: #a198a8; }
+      .mnf-closing { font-size: clamp(1.4rem, 6.5vw, 32px); line-height: 1.2; }
+
+      /* Services Section */
+      #services { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+      #services .flex-col { gap: 1rem; margin-bottom: 2.5rem !important; }
+      #services .grid { gap: 1rem; }
+      #services .group { padding: 1.25rem !important; border-radius: 1.25rem !important; }
+
+      /* Service Detail Modal Mobile Optimization */
+      #service-detail .sdv-bar { padding: 0.75rem 1rem !important; }
+      #service-detail .sdv-bar .max-w-7xl { flex-wrap: wrap !important; gap: 0.5rem !important; justify-content: space-between !important; }
+      #service-detail .sdv-back, #service-detail .sdv-quote { padding: 8px 14px !important; font-size: 12px !important; }
+      #service-detail .sdv-shell { padding-top: 1.5rem !important; padding-bottom: 4rem !important; }
+      #service-detail .sdv-shell h1 { font-size: clamp(26px, 7.5vw, 40px) !important; line-height: 1.1 !important; }
+      #service-detail .sdv-num { font-size: clamp(40px, 10vw, 60px) !important; }
+      #service-detail .sdv-chip { padding: 10px 12px !important; border-radius: 12px !important; font-size: 0.85rem !important; }
+      #service-detail .sdv-pkg { padding: 1.15rem !important; border-radius: 14px !important; }
+      #service-detail .sdv-r.mt-20 { margin-top: 3.5rem !important; }
+      #service-detail .sdv-r.mt-20 .p-10 { padding: 1.75rem 1.25rem !important; border-radius: 1.25rem !important; }
+
+      /* Work Section Filter scroll & card layout */
+      #work { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+      #work .flex-wrap {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-bottom: 8px !important;
+        scrollbar-width: none !important;
+        margin-left: -0.25rem !important;
+        margin-right: -0.25rem !important;
+        padding-left: 0.25rem !important;
+        padding-right: 0.25rem !important;
+      }
+      #work .flex-wrap::-webkit-scrollbar { display: none !important; }
+      #work .flex-wrap button { flex-shrink: 0 !important; white-space: nowrap !important; font-size: 0.75rem !important; padding: 0.4rem 0.9rem !important; }
+      #work .grid { gap: 1.25rem !important; }
+      #work .group { border-radius: 1.5rem !important; }
+      #work .group .h-80 { height: 13rem !important; }
+      #work .group .p-8 { padding: 1.25rem !important; }
+      #work .group h3 { font-size: 1.3rem !important; }
+      #work .group p { font-size: 0.88rem !important; line-height: 1.5 !important; margin-bottom: 1rem !important; }
+
+      /* Founders Section */
+      #founders { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+      #founders .text-center { margin-bottom: 2.5rem !important; }
+      #founders .grid { gap: 1.25rem !important; }
+      #founders .group { padding: 1.25rem !important; border-radius: 1.5rem !important; }
+      #founders .aspect-square { margin-bottom: 1.25rem !important; }
+      #founders h3 { font-size: 1.3rem !important; }
+      #founders p { font-size: 0.88rem !important; line-height: 1.5 !important; }
+
+      /* Advantage Section */
+      #advantage-sec { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+      #advantage-sec .grid.grid-cols-2 { gap: 0.75rem !important; margin-bottom: 2.5rem !important; }
+      #advantage-sec .grid.grid-cols-2 .adv-card { padding: 1.15rem 0.85rem !important; border-radius: 1rem !important; text-align: center !important; }
+      #advantage-sec .grid.grid-cols-2 .adv-title { font-size: 1.15rem !important; margin-bottom: 0.25rem !important; }
+      #advantage-sec .grid.grid-cols-2 .font-label-md { font-size: 0.72rem !important; line-height: 1.35 !important; }
+      #advantage-sec .grid.grid-cols-1 { gap: 0.85rem !important; }
+      #advantage-sec .grid.grid-cols-1 .adv-card { padding: 1.15rem !important; border-radius: 1rem !important; }
+      #advantage-sec .grid.grid-cols-1 h4 { font-size: 1.15rem !important; margin-bottom: 0.35rem !important; }
+      #advantage-sec .grid.grid-cols-1 p { font-size: 0.88rem !important; line-height: 1.5 !important; }
+
+      /* Process Section */
+      #process { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+      #process .text-center.mb-20 { margin-bottom: 2.5rem !important; }
+      #process .grid { gap: 1.75rem !important; }
+      #process .relative.z-10 { align-items: flex-start !important; text-align: left !important; }
+      #process .w-16.h-16 { width: 3.25rem !important; height: 3.25rem !important; border-radius: 0.85rem !important; margin-bottom: 0.85rem !important; }
+      #process h3 { font-size: 1.25rem !important; margin-bottom: 0.35rem !important; }
+      #process p { font-size: 0.88rem !important; line-height: 1.5 !important; }
+
+      /* Clients & Testimonial */
+      .py-24 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+      .max-w-4xl.mt-20 { margin-top: 2.5rem !important; }
+      .max-w-4xl.mt-20 .p-8 { padding: 1.5rem !important; border-radius: 1.5rem !important; }
+      .max-w-4xl.mt-20 p { font-size: 1.05rem !important; line-height: 1.55 !important; margin-bottom: 1.25rem !important; }
+      .max-w-4xl.mt-20 .material-symbols-outlined { font-size: 2.25rem !important; top: 1rem !important; right: 1rem !important; }
+
+      /* Footer */
+      footer .max-w-7xl { padding-top: 3.5rem !important; padding-bottom: 2.5rem !important; }
+      footer .grid { gap: 2rem !important; margin-bottom: 2.5rem !important; }
+      footer .pt-8 { padding-top: 1.5rem !important; flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 1rem !important; }
+      footer .pt-8 .flex { justify-content: center !important; gap: 1rem !important; }
+    }
+
+    /* ─── TABLETS (769–1024px) — mid-size polish ─────────── */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      #services .group, .adv-card { padding: 1.5rem; }
+      .mnf-statement { font-size: clamp(3.4rem, 8.5vw, 96px); }
+    }
+
+    /* Touch devices: kill pointer-only effects & keep cards flat/fast */
+    @media (hover: none) {
+      #services .group:hover a::after { transform: scaleX(0); }
+      #work .group::before, #founders .group::after, .adv-card::before { display: none !important; }
+      .mnf-pillar:hover h3 { transform: none; }
     }
 
     /* ─── SCROLL SECTION ────────────────────────────────── */
@@ -919,8 +1094,30 @@
       <a href="#process">Process</a>
       <a href="#contact" class="nav-cta">Contact</a>
     </div>
+    <button id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
     <span class="nav-frame-counter" id="nav-counter">FRAME 001 / 240</span>
   </nav>
+
+  <!-- ═══ MOBILE MENU OVERLAY ══════════════════════════════ -->
+  <div id="mobile-menu" aria-hidden="true">
+    <div class="mm-head">
+      <span class="nav-logo">Nexora+</span>
+      <button class="mm-close" type="button" aria-label="Close menu">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="mm-links">
+      <a href="#manifesto">Manifesto <span class="material-symbols-outlined">north_east</span></a>
+      <a href="#services">Services <span class="material-symbols-outlined">north_east</span></a>
+      <a href="#work">Work <span class="material-symbols-outlined">north_east</span></a>
+      <a href="why-nexora.html">Why Us <span class="material-symbols-outlined">north_east</span></a>
+      <a href="#process">Process <span class="material-symbols-outlined">north_east</span></a>
+    </div>
+    <a class="mm-cta" href="#contact">Contact <span class="material-symbols-outlined">arrow_forward</span></a>
+    <p class="mm-foot">Jodhpur / Global — Creative Technology</p>
+  </div>
 
   <!-- ═══ SCROLL ANIMATION SECTION ════════════════════════ -->
   <section id="scroll-section">
@@ -1517,7 +1714,61 @@
             else if (n.querySelectorAll) n.querySelectorAll('img').forEach(fix);
           }
         });
-      }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] });
+      }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] });  })();
+</script>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MOBILE/TABLET UX: menu, loader pacing, canvas jitter   -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      // ── Hamburger menu ──
+      const burger = document.getElementById('nav-burger');
+      const menu   = document.getElementById('mobile-menu');
+      const closeBtn = menu ? menu.querySelector('.mm-close') : null;
+      const setMenu = (open) => {
+        if (!menu) return;
+        menu.classList.toggle('open', open);
+        menu.setAttribute('aria-hidden', String(!open));
+        if (burger) burger.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('menu-open', open);
+      };
+      if (burger) burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+      if (closeBtn) closeBtn.addEventListener('click', () => setMenu(false));
+      if (menu) {
+        menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+        // Anchor links pointing to this page need the overlay closed before native scroll
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+      }
+
+      // ── Loader: on mobile networks, show the hero as soon as the first
+      //    frames are in; keep topping up the rest in the background.
+      const isSmall = window.matchMedia('(max-width: 768px)').matches;
+      if (isSmall) {
+        const unlockEarly = () => {
+          if (document.getElementById('loader').classList.contains('hidden')) return;
+          document.getElementById('loader').classList.add('hidden');
+          drawFrame(currentFrame);
+        };
+        if (loadedCount >= 6) setTimeout(unlockEarly, 600);
+        else {
+          const check = setInterval(() => {
+            if (loadedCount >= 6) { clearInterval(check); setTimeout(unlockEarly, 600); }
+          }, 120);
+          setTimeout(() => { clearInterval(check); unlockEarly(); }, 6000); // hard cap: never hold the page hostage
+        }
+      }
+
+      // ── Canvas: ignore the iOS Safari URL-bar show/hide "resize" storm —
+      //    only redraw when the width (or a real rotation) actually changes.
+      let lastW = window.innerWidth, lastH = window.innerHeight, rt = 0;
+      window.addEventListener('resize', () => {
+        const w = window.innerWidth, h = window.innerHeight;
+        if (Math.abs(w - lastW) < 2 && Math.abs(h - lastH) < 160) return; // toolbar fold only
+        lastW = w; lastH = h;
+        clearTimeout(rt);
+        rt = setTimeout(resizeCanvas, 150);
+      }, { passive: true });
     })();
   </script>
 

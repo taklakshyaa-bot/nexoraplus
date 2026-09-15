@@ -149,19 +149,93 @@
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
       background-clip:text;
     }
-    .nav-links { display:flex; align-items:center; gap:2.2rem; }
-    .nav-links a {
-      font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase;
-      color:rgba(229,225,231,0.72); transition:color 0.3s ease;
+    /* ─── HAMBURGER / MOBILE MENU ────────────────────────── */
+    #nav-burger {
+      display: none;
+      width: 44px; height: 44px;
+      margin-right: -8px;
+      align-items: center; justify-content: center;
+      background: transparent; border: 0; cursor: pointer;
+      color: var(--text);
     }
-    .nav-links a:hover { color:var(--accent); }
-    .nav-links a.nav-cta {
-      padding:0.55rem 1.4rem; border:1px solid rgba(168,85,247,0.4);
-      border-radius:999px; color:var(--accent);
+    #nav-burger .material-symbols-outlined { font-size: 28px; }
+    #mobile-menu {
+      position: fixed; inset: 0; z-index: 600;
+      display: flex; flex-direction: column;
+      background: rgba(8,8,12,0.96);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      padding: calc(1.4rem + env(safe-area-inset-top, 0px)) 1.5rem calc(1.6rem + env(safe-area-inset-bottom, 0px));
+      opacity: 0; visibility: hidden; transform: translateY(-12px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     }
-    .nav-links a.nav-cta:hover { background:rgba(168,85,247,0.12); border-color:rgba(192,132,252,0.7); }
-    .nav-links a.active { color:var(--accent); }
-    @media (max-width: 900px) { .nav-links { display:none; } }
+    #mobile-menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .mm-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2.4rem; }
+    .mm-close { width: 44px; height: 44px; margin-right: -8px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; cursor: pointer; color: var(--text); }
+    .mm-close .material-symbols-outlined { font-size: 28px; }
+    .mm-links { display: flex; flex-direction: column; gap: 0.4rem; }
+    .mm-links a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 0.4rem;
+      font-size: 1.25rem; letter-spacing: 0.06em;
+      color: rgba(229,225,231,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.25s ease;
+    }
+    .mm-links a:active, .mm-links a:hover { color: var(--accent); }
+    .mm-links a .material-symbols-outlined { font-size: 18px; color: var(--muted); }
+    .mm-cta {
+      margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      padding: 1rem 1.5rem; border-radius: 999px;
+      border: 1px solid rgba(168,85,247,0.5);
+      color: var(--accent); font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase;
+      min-height: 52px;
+      background: rgba(168,85,247,0.08);
+    }
+    .mm-cta:active { transform: scale(0.98); }
+    .mm-foot { margin-top: 1.2rem; text-align: center; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    body.menu-open { overflow: hidden; }
+
+    @media (max-width: 900px) {
+      #nav { padding-left: max(1.25rem, env(safe-area-inset-left, 0px)); padding-right: max(1.25rem, env(safe-area-inset-right, 0px)); }
+      .nav-links { display: none; }
+      #nav-burger { display: flex; }
+      .nav-logo { font-size: 1.25rem; }
+    }
+
+    @media (max-width: 768px) {
+      body { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      #why-hero { min-height: 75vh; padding: 6rem 1.25rem 3.5rem; }
+      .hero-kicker { font-size: 0.68rem; letter-spacing: 0.25em; margin-bottom: 1rem; }
+      .hero-title { font-size: clamp(2.4rem, 10vw, 4.2rem); }
+      .hero-sub { margin-top: 1.25rem; font-size: 0.95rem; line-height: 1.55; }
+      .hero-scroll-cue { bottom: 1.25rem; font-size: 0.62rem; }
+      .hero-scroll-cue .line { height: 36px; }
+
+      #advantages { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+      #advantages .text-center { margin-bottom: 2.5rem !important; }
+      .adv-grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
+      .adv-card { padding: 1.35rem !important; min-height: auto !important; border-radius: 1.25rem !important; }
+      .adv-num { font-size: 2.6rem !important; top: 1rem !important; right: 1.25rem !important; }
+      .adv-icon { width: 2.8rem !important; height: 2.8rem !important; border-radius: 0.75rem !important; margin-bottom: 1rem !important; }
+      .adv-title { font-size: 1.35rem !important; margin-bottom: 0.5rem !important; }
+      .adv-copy { font-size: 0.92rem !important; line-height: 1.55 !important; }
+      .adv-tag { padding-top: 1rem !important; font-size: 0.65rem !important; }
+
+      .py-24 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+
+      .cmp-table th, .cmp-table td { padding: 0.85rem 0.9rem !important; font-size: 0.88rem !important; }
+      .cmp-table th { font-size: 0.65rem !important; }
+
+      #contact { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+      #contact .rounded-3xl { padding: 2rem 1.25rem !important; border-radius: 1.5rem !important; }
+      #contact h2 { font-size: clamp(2.2rem, 8vw, 3.5rem) !important; line-height: 1.1 !important; }
+      .cta-btn { width: 100% !important; padding: 1rem 1.5rem !important; font-size: 0.95rem !important; }
+
+      footer .max-w-7xl { padding-top: 3.5rem !important; padding-bottom: 2.5rem !important; }
+      footer .grid { gap: 2rem !important; margin-bottom: 2.5rem !important; }
+      footer .pt-8 { padding-top: 1.5rem !important; flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 1rem !important; }
+      footer .pt-8 .flex { justify-content: center !important; gap: 1rem !important; }
+    }
 
     /* ─── AMBIENT GLOW BLOBS ────────────────────────────── */
     .ambient-blob {
@@ -336,7 +410,29 @@
       <a href="index.html#process">Process</a>
       <a href="index.html#contact" class="nav-cta">Contact</a>
     </div>
+    <button id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
   </nav>
+
+  <!-- ═══ MOBILE MENU OVERLAY ══════════════════════════════ -->
+  <div id="mobile-menu" aria-hidden="true">
+    <div class="mm-head">
+      <a href="index.html" class="nav-logo">Nexora+</a>
+      <button class="mm-close" type="button" aria-label="Close menu">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="mm-links">
+      <a href="index.html#manifesto">Manifesto <span class="material-symbols-outlined">north_east</span></a>
+      <a href="index.html#services">Services <span class="material-symbols-outlined">north_east</span></a>
+      <a href="index.html#work">Work <span class="material-symbols-outlined">north_east</span></a>
+      <a href="why-nexora.html">Why Us <span class="material-symbols-outlined">north_east</span></a>
+      <a href="index.html#process">Process <span class="material-symbols-outlined">north_east</span></a>
+    </div>
+    <a class="mm-cta" href="index.html#contact">Contact <span class="material-symbols-outlined">arrow_forward</span></a>
+    <p class="mm-foot">Jodhpur / Global — Creative Technology</p>
+  </div>
 
   <!-- ═══ HERO ═════════════════════════════════════════════ -->
   <section id="why-hero" class="grid-bg">
@@ -552,6 +648,26 @@
   </footer>
 
   <script>
+    // ─── HAMBURGER MENU ───────────────────────────────────
+    (function () {
+      const burger = document.getElementById('nav-burger');
+      const menu   = document.getElementById('mobile-menu');
+      const closeBtn = menu ? menu.querySelector('.mm-close') : null;
+      const setMenu = (open) => {
+        if (!menu) return;
+        menu.classList.toggle('open', open);
+        menu.setAttribute('aria-hidden', String(!open));
+        if (burger) burger.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('menu-open', open);
+      };
+      if (burger) burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+      if (closeBtn) closeBtn.addEventListener('click', () => setMenu(false));
+      if (menu) {
+        menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+      }
+    })();
+
     // ─── SCROLL PROGRESS + NAV GLASS ──────────────────────
     const progressBar = document.getElementById('progress-bar');
     const nav = document.getElementById('nav');
