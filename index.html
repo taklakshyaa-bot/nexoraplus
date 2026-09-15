@@ -326,6 +326,91 @@
       footer .pt-8 .flex { justify-content: center !important; gap: 1rem !important; }
     }
 
+    /* ─── PHONES (≤768px) — refinement pass: type, rhythm, cards, motion ── */
+    @media (max-width: 768px) {
+      /* Fluid headline scale — fixed 44px headlines cramped 320px screens */
+      .text-headline-lg { font-size: clamp(1.8rem, 7.4vw, 2.3rem) !important; line-height: 1.16 !important; }
+      .text-headline-md { font-size: clamp(1.3rem, 5.6vw, 1.55rem) !important; line-height: 1.25 !important; }
+
+      /* Horizontal-overflow safety net */
+      img, video, canvas { max-width: 100%; }
+      a, button { touch-action: manipulation; }
+      footer a, .sdv-chip span:last-child, #work .group p { overflow-wrap: anywhere; }
+
+      /* Consistent section rhythm + gutters (20px on phones) */
+      .py-28 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+      #services, #work, #founders, #advantage-sec, #process { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+      #manifesto .max-w-7xl { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+      footer .max-w-7xl { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+      #manifesto .mt-24 { margin-top: 4rem !important; }
+      #manifesto .mt-28 { margin-top: 4.5rem !important; }
+      .mnf-pillar p { max-width: none !important; }
+
+      /* Services cards: tighter verticals, mobile-sized icon + type */
+      #services .group { padding: 1.15rem 1.05rem !important; }
+      #services .group .w-12.h-12 { width: 2.75rem !important; height: 2.75rem !important; margin-bottom: 0.9rem !important; }
+      #services .group .w-12.h-12 .material-symbols-outlined { font-size: 22px !important; }
+      #services .group h3 { font-size: 1.12rem !important; line-height: 1.3 !important; }
+      #services .group p { font-size: 0.86rem !important; line-height: 1.5 !important; margin-bottom: 0.9rem !important; }
+
+      /* Work cards: fluid image ratio instead of fixed 320px-tall media */
+      #work .group .h-80 { height: auto !important; aspect-ratio: 16 / 10; min-height: 170px; }
+      #work .group .h-80 span { top: 0.9rem !important; left: 0.9rem !important; font-size: 0.6rem !important; padding: 0.3rem 0.65rem !important; }
+      #work .group .p-8 .flex.justify-between { flex-wrap: wrap; row-gap: 0.35rem; }
+      #work .group .p-8 .text-right .font-display { font-size: 1.05rem !important; }
+      #work .group .p-8 .text-right .block { font-size: 0.6rem !important; }
+      #work .group .p-8 > .flex.justify-between.items-center { padding-top: 0.85rem !important; }
+      #work .group .p-8 > .flex.justify-between.items-center span:first-child { font-size: 0.66rem !important; }
+
+      /* Founders: badge/share row wraps inside the portrait */
+      #founders .group .absolute.bottom-4 { left: 0.7rem !important; right: 0.7rem !important; bottom: 0.7rem !important; flex-wrap: wrap; gap: 0.4rem !important; }
+      #founders .group .absolute.bottom-4 > span { font-size: 0.58rem !important; padding: 0.28rem 0.6rem !important; }
+      #founders .group .pt-4 span:last-child { font-size: 0.82rem !important; line-height: 1.45 !important; }
+
+      /* Advantage: keep 2-up stat cards balanced on narrow screens */
+      #advantage-sec .grid.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+
+      /* Clients marquee: denser + slightly quicker crawl */
+      .animate-marquee { gap: 2rem !important; animation-duration: 18s; }
+      .animate-marquee span { font-size: 1.05rem !important; }
+      .animate-marquee img { width: 1.6rem !important; height: 1.6rem !important; }
+
+      /* Service-detail overlay: full-width CTA, contained glow, tighter shell */
+      #service-detail .sdv-shell { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+      #service-detail .sdv-shell h2 { font-size: clamp(1.5rem, 6.4vw, 1.9rem) !important; line-height: 1.12 !important; }
+      #service-detail .sdv-shell a[href^="mailto"] { width: 100% !important; justify-content: center !important; padding: 0.95rem 1.25rem !important; }
+      #service-detail .sdv-shell .p-10 > .absolute { width: 70vw !important; height: 70vw !important; }
+      #service-detail .sdv-chip { padding: 11px 12px !important; }
+
+      /* Footer: single column, wrap-safe */
+      footer h5 { font-size: 0.95rem !important; }
+      footer li a { font-size: 0.9rem !important; }
+      footer .pt-8 p { font-size: 0.68rem !important; line-height: 1.55 !important; }
+
+      /* Battery-friendlier ambient motion on phones */
+      .adv-bg, .adv-grid { animation: none !important; }
+      .mnf-aurora { width: 620px; height: 620px; filter: blur(60px); }
+      .ambient-blob { filter: blur(110px); }
+    }
+
+    /* ─── SMALL PHONES (≤380px) — final density pass ────── */
+    @media (max-width: 380px) {
+      #scroll-section { height: 380vh; }
+      section[id] { scroll-margin-top: 64px; }
+      .text-headline-lg { font-size: 1.65rem !important; }
+      .mnf-statement { font-size: 2.05rem; }
+      .mnf-pillar h3 { font-size: 1.55rem; }
+      .mnf-closing { font-size: 1.3rem; }
+      #services .group, #work .group .p-8, #founders .group { padding-left: 1rem !important; padding-right: 1rem !important; }
+      #advantage-sec .grid.grid-cols-2 { gap: 0.6rem !important; }
+      #advantage-sec .grid.grid-cols-2 .adv-title { font-size: 1rem !important; }
+      #advantage-sec .grid.grid-cols-2 .font-label-md { font-size: 0.65rem !important; }
+      #work .group .h-80 { min-height: 150px; }
+      .mm-links a { font-size: 1.1rem; }
+      #service-detail .sdv-quote { padding: 7px 10px !important; font-size: 11px !important; }
+      .animate-marquee { gap: 1.5rem !important; }
+    }
+
     /* ─── TABLETS (769–1024px) — mid-size polish ─────────── */
     @media (min-width: 769px) and (max-width: 1024px) {
       #services .group, .adv-card { padding: 1.5rem; }
@@ -1062,6 +1147,144 @@
       .adv-shape { display:none !important; }
     }
   </style>
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       MOBILE FINAL PASS — 320px–768px, self-contained layer.
+       Every rule sits behind a max-width / hover media query,
+       so desktop (≥769px) rendering is completely untouched.
+       ═══════════════════════════════════════════════════════ */
+
+    /* ── Horizontal-overflow guard ─────────────────────── */
+    @media (max-width: 768px) {
+      html, body { max-width: 100%; overflow-x: hidden; overflow-x: clip; }
+      #agency-content { overflow-x: clip; }
+      .ambient-blob { max-width: 80vw; max-height: 80vw; }
+      .mnf-aurora { max-width: 130vw; }
+    }
+
+    /* ── Nav & loader ──────────────────────────────────── */
+    @media (max-width: 768px) {
+      #nav {
+        padding-top: calc(0.8rem + env(safe-area-inset-top, 0px));
+        padding-bottom: 0.8rem;
+        padding-left: max(1rem, env(safe-area-inset-left, 0px));
+        padding-right: max(1rem, env(safe-area-inset-right, 0px));
+      }
+      .nav-logo { font-size: 1.2rem; }
+      #nav-burger { margin-right: -6px; }
+      .loader-logo { font-size: clamp(1.9rem, 9vw, 2.6rem); margin-bottom: 1.4rem; }
+      .loader-bar-wrapper { width: min(240px, 62vw); }
+    }
+
+    /* ── Mobile menu: scrollable list + safe areas ─────── */
+    @media (max-width: 768px) {
+      #mobile-menu {
+        padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+        padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+        padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px));
+      }
+      .mm-head { margin-bottom: 1.4rem; }
+      .mm-links {
+        overflow-y: auto; overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        max-height: 58vh; padding-bottom: 0.4rem;
+      }
+      .mm-links a { min-height: 56px; }
+      .mm-foot { margin-top: 0.8rem; }
+    }
+
+    /* ── Hero scrub section ────────────────────────────── */
+    @media (max-width: 768px) {
+      .overlay-top, .overlay-bottom { height: 11vh; }
+      #frame-label {
+        right: calc(0.75rem + env(safe-area-inset-right, 0px));
+        bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+      }
+      #scroll-hint { bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); }
+    }
+
+    /* ── Section shell: gutters, anchors, headers ──────── */
+    @media (max-width: 768px) {
+      section[id], #contact { scroll-margin-top: 84px; }
+      #services, #work, #founders, #advantage-sec, #process {
+        padding-left: 1.1rem !important; padding-right: 1.1rem !important;
+      }
+      #manifesto .max-w-7xl, footer .max-w-7xl {
+        padding-left: 1.1rem !important; padding-right: 1.1rem !important;
+      }
+      #services .flex-col p { max-width: 100% !important; }
+    }
+
+    /* ── Grids that flip to md: at exactly 768px ───────── */
+    @media (max-width: 768px) {
+      /* Founders: 3-up → stacked, editorial 4:5 portraits */
+      #founders .grid { grid-template-columns: 1fr !important; gap: 1.4rem !important; }
+      #founders .aspect-square { aspect-ratio: 4 / 5 !important; height: auto !important; }
+      #founders .group .w-8.h-8 { width: 2.5rem !important; height: 2.5rem !important; }
+
+      /* Process: 4-up → stacked; hide the desktop connector line */
+      #process .grid { grid-template-columns: 1fr !important; gap: 1.9rem !important; }
+      #process .md\:block { display: none !important; }
+
+      /* Footer: brand block full-width + 2-col link grid */
+      footer .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 2.2rem 1.4rem !important;
+      }
+      footer .md\:col-span-2 { grid-column: 1 / -1 !important; }
+      footer .pt-8 {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+      footer .pt-8 .flex {
+        flex-wrap: wrap; justify-content: center !important;
+        gap: 0.4rem 1.1rem !important;
+      }
+    }
+
+    /* ── Cards: proportions + tap feel ─────────────────── */
+    @media (max-width: 768px) {
+      #services .group { padding: 1.2rem 1.05rem !important; }
+      #services .group:active { transform: scale(0.985); }
+      #work .group .h-80 { aspect-ratio: 4 / 3 !important; min-height: 0 !important; }
+      #work .group h3 { font-size: 1.2rem !important; }
+      .max-w-4xl.mt-20 .p-8 { padding: 1.35rem 1.15rem !important; }
+      .max-w-4xl.mt-20 p { font-size: 1rem !important; }
+    }
+
+    /* ── Service-detail overlay: no sideways scroll ────── */
+    @media (max-width: 768px) {
+      #service-detail { overflow-x: hidden !important; }
+      #service-detail::before { width: 130vw; }
+    }
+
+    /* ── Motion: battery-friendly ambient freeze ───────── */
+    @media (max-width: 768px) {
+      .ambient-blob, .animate-pulse-slow, .mnf-aurora, .mnf-aurora-2,
+      .adv-bg, .adv-light, .adv-grid { animation: none !important; }
+    }
+    @media (hover: none) {
+      .adv-sweep, .svc-sweep { display: none !important; }
+    }
+    @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+      .animate-marquee { animation: none !important; }
+    }
+
+    /* ── Small phones (≤380px): final density pass ─────── */
+    @media (max-width: 380px) {
+      #services, #work, #founders, #advantage-sec, #process {
+        padding-left: 0.9rem !important; padding-right: 0.9rem !important;
+      }
+      #manifesto .max-w-7xl, footer .max-w-7xl {
+        padding-left: 0.9rem !important; padding-right: 0.9rem !important;
+      }
+      #founders .grid { gap: 1.1rem !important; }
+      .mm-links a { font-size: 1.05rem; }
+      #work .group .h-80 { aspect-ratio: 16 / 11 !important; }
+    }
+  </style>
 </head>
 
 <body class="bg-surface-container-lowest text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
@@ -1741,34 +1964,11 @@
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
       }
 
-      // ── Loader: on mobile networks, show the hero as soon as the first
-      //    frames are in; keep topping up the rest in the background.
-      const isSmall = window.matchMedia('(max-width: 768px)').matches;
-      if (isSmall) {
-        const unlockEarly = () => {
-          if (document.getElementById('loader').classList.contains('hidden')) return;
-          document.getElementById('loader').classList.add('hidden');
-          drawFrame(currentFrame);
-        };
-        if (loadedCount >= 6) setTimeout(unlockEarly, 600);
-        else {
-          const check = setInterval(() => {
-            if (loadedCount >= 6) { clearInterval(check); setTimeout(unlockEarly, 600); }
-          }, 120);
-          setTimeout(() => { clearInterval(check); unlockEarly(); }, 6000); // hard cap: never hold the page hostage
-        }
-      }
-
-      // ── Canvas: ignore the iOS Safari URL-bar show/hide "resize" storm —
-      //    only redraw when the width (or a real rotation) actually changes.
-      let lastW = window.innerWidth, lastH = window.innerHeight, rt = 0;
-      window.addEventListener('resize', () => {
-        const w = window.innerWidth, h = window.innerHeight;
-        if (Math.abs(w - lastW) < 2 && Math.abs(h - lastH) < 160) return; // toolbar fold only
-        lastW = w; lastH = h;
-        clearTimeout(rt);
-        rt = setTimeout(resizeCanvas, 150);
-      }, { passive: true });
+      // NOTE: the mobile loader early-unlock + iOS canvas resize guard live in
+      // the scroll-animation script below — they reference drawFrame /
+      // loadedCount / resizeCanvas, which are only defined there. (Accessing
+      // them from this earlier script threw a TDZ ReferenceError on phones,
+      // silently disabling both features.)
     })();
   </script>
 
@@ -1946,7 +2146,7 @@
         ...Array.from(section.querySelectorAll('.mnf-pillar-grid')).map((el, i) => ({ el, amp: i % 2 === 0 ? 10 : -10 }))
       ].filter((t) => t.el);
 
-      if (plxEls.length) {
+      if (plxEls.length && !window.matchMedia('(max-width: 768px)').matches) { // skip type parallax on phones
         let plxPending = false;
         const updateParallax = () => {
           plxPending = false;
@@ -1969,6 +2169,7 @@
       const section = document.getElementById('services');
       if (!section) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const isPhone = window.matchMedia('(max-width: 768px)').matches;
 
       const header = section.querySelector(':scope > div');
       const kicker = header ? header.querySelector('span') : null;
@@ -2069,7 +2270,7 @@
       // Parallax + cinematic scroll-out (rAF-throttled)
       let pending = false;
       const onScroll = () => {
-        if (pending) return;
+        if (pending || isPhone) return; // skip scroll-linked transforms on phones
         pending = true;
         requestAnimationFrame(() => {
           pending = false;
@@ -2212,13 +2413,27 @@
         }
       ];
 
-      // Map each grid card to its service (cards are in PDF order)
+      // Map each grid card to its service (cards are in DOM order).
+      // Cards carry no inner <a>, so bind activation directly on the card —
+      // this is what makes the detail overlay reachable on touch screens.
       const cards = document.querySelectorAll('#services .grid > .group');
       cards.forEach((card, i) => {
-        const link = card.querySelector('a[href="#contact"]');
-        if (!link || !services[i]) return;
-        link.dataset.service = services[i].slug;
-        link.href = '#' + services[i].slug;
+        const s = services[i];
+        if (!s) return;
+        card.dataset.service = s.slug;
+        card.style.cursor = 'pointer';
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', s.name + ' — view details');
+        card.addEventListener('click', (e) => {
+          if (e.target.closest('a')) return;
+          openDetail(s.slug);
+        });
+        card.addEventListener('keydown', (e) => {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          e.preventDefault();
+          openDetail(s.slug);
+        });
       });
 
       const chip = (t) => '<div class="sdv-chip"><span class="material-symbols-outlined text-primary text-[18px]" style="color:#ddb7ff">check_circle</span><span class="font-body-sm text-body-sm text-on-surface-variant">' + t + '</span></div>';
@@ -2328,6 +2543,7 @@
       const section = document.getElementById('work');
       if (!section) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const isPhone = window.matchMedia('(max-width: 768px)').matches;
 
       const cards = Array.from(section.querySelectorAll('.grid > .group'));
       section.classList.add('wk-anim');
@@ -2379,7 +2595,7 @@
         wrap: card.querySelector('.wk-par'),
       })).filter((p) => p.holder && p.wrap);
 
-      if (pars.length) {
+      if (pars.length && !isPhone) { // skip image parallax on phones (scroll perf)
         let pending = false;
         const update = () => {
           pending = false;
@@ -2404,6 +2620,7 @@
       const section = document.getElementById('founders');
       if (!section) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const isPhone = window.matchMedia('(max-width: 768px)').matches;
 
       const cards = Array.from(section.querySelectorAll('.grid > .group'));
       section.classList.add('fd-anim');
@@ -2444,7 +2661,7 @@
         wrap: card.querySelector('.fd-img-wrap'),
       })).filter((p) => p.holder && p.wrap);
 
-      if (pars.length) {
+      if (pars.length && !isPhone) { // skip portrait parallax on phones (scroll perf)
         let pending = false;
         const update = () => {
           pending = false;
@@ -2561,6 +2778,39 @@
           setTimeout(() => { section.classList.remove('adv-anim'); section.classList.add('adv-done'); }, 1500);
         }
       }, 400);
+    })();
+
+    // ─── MOBILE UX: early hero unlock + iOS canvas resize guard ──────────
+    // Lives here so drawFrame / loadedCount / resizeCanvas are in scope.
+    (function () {
+      const loaderEl = document.getElementById('loader');
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        // On mobile networks, show the hero as soon as the first frames are
+        // in; keep topping up the rest in the background.
+        const unlockEarly = () => {
+          if (loaderEl.classList.contains('hidden')) return;
+          loaderEl.classList.add('hidden');
+          drawFrame(currentFrame);
+        };
+        if (loadedCount >= 6) setTimeout(unlockEarly, 600);
+        else {
+          const check = setInterval(() => {
+            if (loadedCount >= 6) { clearInterval(check); setTimeout(unlockEarly, 600); }
+          }, 120);
+          setTimeout(() => { clearInterval(check); unlockEarly(); }, 6000); // hard cap: never hold the page hostage
+        }
+      }
+
+      // Ignore the iOS Safari URL-bar show/hide "resize" storm — only redraw
+      // when the width (or a real rotation) actually changes.
+      let lastW = window.innerWidth, lastH = window.innerHeight, rt = 0;
+      window.addEventListener('resize', () => {
+        const w = window.innerWidth, h = window.innerHeight;
+        if (Math.abs(w - lastW) < 2 && Math.abs(h - lastH) < 160) return; // toolbar fold only
+        lastW = w; lastH = h;
+        clearTimeout(rt);
+        rt = setTimeout(resizeCanvas, 150);
+      }, { passive: true });
     })();
 
     preloadAll();
