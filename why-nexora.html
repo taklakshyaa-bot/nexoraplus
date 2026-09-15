@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Nexora+ | Creative Minds x Digital Solutions</title>
+  <meta name="description" content="Why Nexora+ — creativity, AI & technology, strategic thinking, personalized solutions, measurable growth, affordable packages and fast delivery. Engineering the future of brand culture." />
+
+  <!-- Google Fonts: DM Serif Display (single-font system) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#93000a",
+            "surface-container": "#1f1f23",
+            "primary-fixed": "#f0dbff",
+            "primary-container": "#b76dff",
+            "on-error": "#690005",
+            "tertiary-container": "#a078ff",
+            "primary-fixed-dim": "#ddb7ff",
+            "on-secondary-fixed": "#25005a",
+            "surface-variant": "#353439",
+            "inverse-primary": "#842bd2",
+            "on-secondary-fixed-variant": "#5a00c6",
+            "tertiary-fixed-dim": "#d0bcff",
+            "on-background": "#e5e1e7",
+            "surface-container-high": "#2a292e",
+            "outline": "#988d9f",
+            "on-primary-fixed-variant": "#6900b3",
+            "on-tertiary-fixed": "#23005c",
+            "tertiary-fixed": "#e9ddff",
+            "inverse-on-surface": "#303034",
+            "primary": "#ddb7ff",
+            "on-tertiary": "#3c0091",
+            "on-secondary-container": "#c9aeff",
+            "secondary-fixed": "#eaddff",
+            "on-surface-variant": "#cfc2d6",
+            "error": "#ffb4ab",
+            "inverse-surface": "#e5e1e7",
+            "on-primary-container": "#400071",
+            "on-tertiary-container": "#340080",
+            "outline-variant": "#4d4354",
+            "on-error-container": "#ffdad6",
+            "surface-bright": "#39393d",
+            "surface-dim": "#131317",
+            "secondary-fixed-dim": "#d2bbff",
+            "background": "#131317",
+            "surface": "#131317",
+            "surface-container-highest": "#353439",
+            "on-primary-fixed": "#2c0051",
+            "surface-container-low": "#1b1b1f",
+            "on-surface": "#e5e1e7",
+            "on-secondary": "#3f008e",
+            "surface-container-lowest": "#0e0e12",
+            "secondary": "#d2bbff",
+            "on-primary": "#490080",
+            "on-tertiary-fixed-variant": "#5516be",
+            "tertiary": "#d0bcff",
+            "surface-tint": "#ddb7ff",
+            "secondary-container": "#6001d1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"
+          },
+          "fontFamily": {
+            "display": ["DM Serif Display", "serif"], "display-mobile": ["DM Serif Display", "serif"],
+            "label-md": ["DM Serif Display", "serif"], "body-sm": ["DM Serif Display", "serif"],
+            "headline-lg": ["DM Serif Display", "serif"], "label-sm": ["DM Serif Display", "serif"],
+            "headline-sm": ["DM Serif Display", "serif"], "body-md": ["DM Serif Display", "serif"],
+            "headline-md": ["DM Serif Display", "serif"], "body-lg": ["DM Serif Display", "serif"],
+            "label-lg": ["DM Serif Display", "serif"], "headline-lg-mobile": ["DM Serif Display", "serif"]
+          },
+          "fontSize": {
+            "display": ["64px", {"lineHeight":"72px","letterSpacing":"-0.03em","fontWeight":"400"}],
+            "display-mobile": ["40px", {"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"400"}],
+            "label-md": ["12px", {"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"400"}],
+            "body-sm": ["14px", {"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],
+            "headline-lg": ["44px", {"lineHeight":"52px","letterSpacing":"-0.02em","fontWeight":"400"}],
+            "label-sm": ["10px", {"lineHeight":"14px","letterSpacing":"0.1em","fontWeight":"400"}],
+            "headline-sm": ["20px", {"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],
+            "body-md": ["16px", {"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],
+            "headline-md": ["28px", {"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"400"}],
+            "body-lg": ["18px", {"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],
+            "label-lg": ["14px", {"lineHeight":"20px","letterSpacing":"0.05em","fontWeight":"400"}],
+            "headline-lg-mobile": ["32px", {"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"400"}]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ─── RESET & BASE ──────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent: #a78bfa;
+      --accent2: #38bdf8;
+      --bg: #08080c;
+      --text: #e5e1e7;
+      --muted: #94a3b8;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'DM Serif Display', serif;
+      overflow-x: hidden;
+    }
+
+    /* Single-font rule: DM Serif Display ships only weight 400 —
+       force native weight sitewide for a crisp, cinematic cut. */
+    * { font-weight: 400 !important; }
+
+    /* ─── SCROLL PROGRESS BAR ───────────────────────────── */
+    #progress-bar {
+      position:fixed; top:0; left:0; height:3px; width:0%;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      z-index:1000; transition:width 0.05s linear;
+    }
+
+    /* ─── NAV (transparent → glass on scroll) ───────────── */
+    #nav {
+      position:fixed; top:0; left:0; right:0;
+      padding:1.4rem 2.5rem;
+      display:flex; align-items:center; justify-content:space-between;
+      z-index:500; transition:background 0.4s ease;
+    }
+    #nav.scrolled {
+      background:rgba(8,8,12,0.75);
+      backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+    .nav-logo {
+      font-size:1.4rem; letter-spacing:-0.03em;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .nav-links { display:flex; align-items:center; gap:2.2rem; }
+    .nav-links a {
+      font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase;
+      color:rgba(229,225,231,0.72); transition:color 0.3s ease;
+    }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-links a.nav-cta {
+      padding:0.55rem 1.4rem; border:1px solid rgba(168,85,247,0.4);
+      border-radius:999px; color:var(--accent);
+    }
+    .nav-links a.nav-cta:hover { background:rgba(168,85,247,0.12); border-color:rgba(192,132,252,0.7); }
+    .nav-links a.active { color:var(--accent); }
+    @media (max-width: 900px) { .nav-links { display:none; } }
+
+    /* ─── AMBIENT GLOW BLOBS ────────────────────────────── */
+    .ambient-blob {
+      position:fixed; border-radius:50%; filter:blur(140px);
+      pointer-events:none; z-index:-1;
+    }
+
+    /* ─── SHARED FX ─────────────────────────────────────── */
+    .glow-purple { box-shadow:0 0 50px -10px rgba(168,85,247,0.35); }
+    .metallic-text {
+      background:linear-gradient(135deg,#ffffff 0%,#d8b4fe 50%,#94a3b8 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .grid-bg {
+      background-image:radial-gradient(rgba(168,85,247,0.12) 1px,transparent 1px);
+      background-size:36px 36px;
+    }
+    @keyframes pulse-slow { 0%,100%{opacity:0.4;transform:scale(1)} 50%{opacity:0.8;transform:scale(1.05)} }
+    .animate-pulse-slow { animation:pulse-slow 6s ease-in-out infinite; }
+
+    /* ─── REVEAL ON SCROLL ──────────────────────────────── */
+    .reveal {
+      opacity:0; transform:translateY(36px);
+      transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.in-view { opacity:1; transform:translateY(0); }
+
+    /* ─── HERO ──────────────────────────────────────────── */
+    #why-hero {
+      position:relative; min-height:92vh;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; overflow:hidden;
+    }
+    .hero-kicker {
+      font-size:0.72rem; letter-spacing:0.35em; text-transform:uppercase;
+      color:var(--accent); margin-bottom:1.6rem;
+    }
+    .hero-title {
+      font-size:clamp(3rem, 9vw, 7.5rem); line-height:1.02; letter-spacing:-0.02em;
+      filter:drop-shadow(0 6px 30px rgba(8,8,12,0.65));
+    }
+    .hero-title .q { font-style:italic; color:var(--accent); }
+    .hero-sub {
+      margin-top:1.6rem; max-width:640px;
+      font-size:clamp(1rem, 1.6vw, 1.25rem); line-height:1.6;
+      color:rgba(229,225,231,0.66);
+    }
+    .hero-scroll-cue {
+      position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:0.6rem;
+      color:var(--muted); font-size:0.68rem; letter-spacing:0.25em; text-transform:uppercase;
+    }
+    .hero-scroll-cue .line {
+      width:1px; height:52px;
+      background:linear-gradient(to bottom,var(--accent),transparent);
+      animation:cue 2.2s ease-in-out infinite;
+    }
+    @keyframes cue { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+    /* ─── ADVANTAGE CARDS (tilt + spotlight) ────────────── */
+    .adv-grid {
+      display:grid; gap:1.5rem;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .adv-card {
+      position:relative; overflow:hidden;
+      border-radius:1.5rem; padding:2.2rem;
+      background:rgba(27,27,31,0.7);
+      border:1px solid rgba(168,85,247,0.18);
+      backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+      transform-style:preserve-3d;
+      transition:border-color 0.4s ease, box-shadow 0.4s ease;
+      min-height:300px;
+      display:flex; flex-direction:column;
+    }
+    .adv-card::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(168,85,247,0.14), transparent 42%);
+      opacity:0; transition:opacity 0.4s ease; pointer-events:none;
+    }
+    .adv-card:hover::before { opacity:1; }
+    .adv-card:hover {
+      border-color:rgba(192,132,252,0.55);
+      box-shadow:0 20px 60px -20px rgba(124,58,237,0.45);
+    }
+    .adv-icon {
+      width:3.2rem; height:3.2rem; border-radius:0.9rem;
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:1.4rem; flex-shrink:0;
+    }
+    .adv-num {
+      position:absolute; top:1.4rem; right:1.8rem;
+      font-size:3.4rem; line-height:1; font-style:italic;
+      color:rgba(168,85,247,0.10);
+      transition:color 0.4s ease;
+    }
+    .adv-card:hover .adv-num { color:rgba(168,85,247,0.22); }
+    .adv-title { font-size:1.55rem; margin-bottom:0.7rem; }
+    .adv-copy { color:var(--on-surface-variant, #cfc2d6); font-size:0.98rem; line-height:1.65; }
+    .adv-tag {
+      margin-top:auto; padding-top:1.4rem;
+      font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--accent);
+    }
+
+    /* ─── METRICS ───────────────────────────────────────── */
+    .metric-num { font-variant-numeric:tabular-nums; }
+
+    /* ─── COMPARISON ────────────────────────────────────── */
+    .cmp-table { width:100%; border-collapse:collapse; }
+    .cmp-table th, .cmp-table td {
+      padding:1.1rem 1.4rem; text-align:left; font-size:1rem;
+      border-bottom:1px solid rgba(77,67,84,0.35);
+    }
+    .cmp-table th {
+      font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--muted);
+    }
+    .cmp-table th.nx { color:var(--accent); }
+    .cmp-table td.nx { color:var(--text); }
+    .cmp-table td.other { color:var(--muted); }
+    .cmp-table tr { transition:background 0.3s ease; }
+    .cmp-table tbody tr:hover { background:rgba(168,85,247,0.05); }
+    .tick { color:#34d399; } .cross { color:#f87171; }
+
+    /* ─── CTA ───────────────────────────────────────────── */
+    .cta-btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:0.75rem;
+      padding:1.25rem 2.75rem; border-radius:999px;
+      background:linear-gradient(90deg,#b76dff,#842bd2,#6001d1);
+      color:#ddb7ff; font-size:1.05rem; letter-spacing:0.06em;
+      box-shadow:0 0 40px rgba(183,109,255,0.6);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cta-btn:hover {
+      transform:scale(1.05);
+      box-shadow:0 0 60px rgba(183,109,255,0.9);
+    }
+    .cta-btn:active { transform:scale(0.95); }
+
+    /* ─── FOOTER (matches index) ────────────────────────── */
+    .foot-link {
+      color:var(--outline, #988d9f); transition:color 0.2s ease;
+    }
+    .foot-link:hover { color:var(--accent); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity:1; transform:none; transition:none; }
+      .animate-pulse-slow, .hero-scroll-cue .line { animation:none; }
+    }
+  </style>
+</head>
+
+<body class="bg-surface-container-lowest text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- SCROLL PROGRESS -->
+  <div id="progress-bar"></div>
+
+  <!-- AMBIENT LIGHTS -->
+  <div class="ambient-blob w-[600px] h-[600px] bg-secondary-container/20 top-0 left-1/4 animate-pulse-slow"></div>
+  <div class="ambient-blob w-[500px] h-[500px] bg-primary/10 bottom-1/4 right-10"></div>
+  <div class="ambient-blob w-[450px] h-[450px] bg-inverse-primary/15 top-2/3 left-10"></div>
+
+  <!-- ═══ NAV ══════════════════════════════════════════════ -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Nexora+</a>
+    <div class="nav-links">
+      <a href="index.html#manifesto">Manifesto</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#work">Work</a>
+      <a href="why-nexora.html" class="active">Why Us</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#contact" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═════════════════════════════════════════════ -->
+  <section id="why-hero" class="grid-bg">
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[34rem] h-[34rem] bg-primary-container/20 rounded-full blur-[110px] pointer-events-none"></div>
+    <span class="hero-kicker reveal">The Nexora+ Advantage</span>
+    <h1 class="hero-title metallic-text reveal">Why <span class="q">Nexora+?</span></h1>
+    <p class="hero-sub reveal">
+      Seven reasons ambitious brands trust a young, relentless creative technology firm
+      to engineer their next leap — from pure creativity to measurable growth.
+    </p>
+    <div class="hero-scroll-cue">
+      <span>Scroll</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- ═══ SEVEN ADVANTAGES ═════════════════════════════════ -->
+  <section class="py-28 px-6 md:px-12 max-w-7xl mx-auto relative" id="advantages">
+    <div class="text-center mb-16 reveal">
+      <span class="block text-label-md text-primary tracking-widest uppercase mb-2" style="font-size:0.72rem;">Seven Reasons</span>
+      <h2 class="text-headline-lg md:text-[52px] md:leading-[60px]" style="font-size:clamp(2rem,4.5vw,3.25rem);">Built to Outperform</h2>
+    </div>
+
+    <div class="adv-grid">
+      <!-- 1. Creativity -->
+      <div class="adv-card reveal tilt">
+        <span class="adv-num">01</span>
+        <div class="adv-icon bg-primary/10 text-primary"><span class="material-symbols-outlined text-[28px]">auto_awesome</span></div>
+        <h3 class="adv-title">Creativity</h3>
+        <p class="adv-copy">We reject safe, sterile templates. Every campaign is engineered as a bespoke cultural phenomenon — bold concepts, striking art direction and stories that refuse to be ignored.</p>
+        <span class="adv-tag">Bespoke by default</span>
+      </div>
+      <!-- 2. AI & Technology -->
+      <div class="adv-card reveal tilt">
+        <span class="adv-num">02</span>
+        <div class="adv-icon bg-secondary/10 text-secondary"><span class="material-symbols-outlined text-[28px]">smart_toy</span></div>
+        <h3 class="adv-title">AI &amp; Technology</h3>
+        <p class="adv-copy">100% in-house AI lab. Generative pipelines, autonomous neural synthesis and WebGL digital flagships multiply output speed and predictive media accuracy.</p>
+        <span class="adv-tag">In-house neural lab</span>
+      </div>
+      <!-- 3. Strategic Thinking -->
+      <div class="adv-card reveal tilt">
+        <span class="adv-num">03</span>
+        <div class="adv-icon bg-tertiary/10 text-tertiary"><span class="material-symbols-outlined text-[28px]">psychology</span></div>
+        <h3 class="adv-title">Strategic Thinking</h3>
+        <p class="adv-copy">Rigorous data modeling ensures every artistic impulse maps directly to commercial outcomes. Creativity with a business brain — no vanity metrics.</p>
+        <span class="adv-tag">Data-led instinct</span>
+      </div>
+      <!-- 4. Personalized Solutions -->
+      <div class="adv-card reveal tilt">
+        <span class="adv-num">04</span>
+        <div class="adv-icon bg-primary/10 text-primary"><span class="material-symbols-outlined text-[28px]">tune</span></div>
+        <h3 class="adv-title">Personalized Solutions</h3>
+        <p class="adv-copy">Zero cookie-cutter packages. Every engagement is architected around your brand DNA, audience behavior and growth stage — then rebuilt as you scale.</p>
+        <span class="adv-tag">Zero templates</span>
+      </div>
+      <!-- 5. Measurable Growth -->
+      <div class="adv-card reveal tilt">
+        <span class="adv-num">05</span>
+        <div class="adv-icon bg-secondary/10 text-secondary"><span class="material-symbols-outlined text-[28px]">trending_up</span></div>
+        <h3 class="adv-title">Measurable Growth</h3>
+        <p class="adv-copy">Every engagement ships with a scoreboard: conversion surges, ROI multiples, impression velocity. You see precisely what the work returns.</p>
+        <span class="adv-tag">ROI you can audit</span>
+      </div>
+      <!-- 6. Affordable Packages -->
+      <div class="adv-card reveal tilt">
+        <span class="adv-num">06</span>
+        <div class="adv-icon bg-tertiary/10 text-tertiary"><span class="material-symbols-outlined text-[28px]">savings</span></div>
+        <h3 class="adv-title">Affordable Packages</h3>
+        <p class="adv-copy">Lean, senior-only teams and AI-augmented workflows mean flagship-grade output without the legacy-agency retainer. Premium work, honest pricing.</p>
+        <span class="adv-tag">No bloat, no burn</span>
+      </div>
+      <!-- 7. Fast Delivery -->
+      <div class="adv-card reveal tilt">
+        <span class="adv-num">07</span>
+        <div class="adv-icon bg-primary/10 text-primary"><span class="material-symbols-outlined text-[28px]">bolt</span></div>
+        <h3 class="adv-title">Fast Delivery</h3>
+        <p class="adv-copy">Zero bureaucratic latency. Agile pods launch complex digital flagships in weeks, not quarters — with high-velocity pipelines that never trade speed for craft.</p>
+        <span class="adv-tag">Weeks, not quarters</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ METRICS ══════════════════════════════════════════ -->
+  <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-outline-variant/15">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/25 text-center relative overflow-hidden reveal">
+        <div class="w-full h-0.5 bg-primary absolute top-0 left-0"></div>
+        <div class="text-display metric-num metallic-text mb-2" style="font-size:clamp(2.4rem,4vw,4rem);" data-count="140" data-suffix="M+">0</div>
+        <div class="text-label-md text-on-surface-variant" style="font-size:0.72rem; letter-spacing:0.08em;">Global Impressions Delivered</div>
+      </div>
+      <div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/25 text-center relative overflow-hidden reveal">
+        <div class="w-full h-0.5 bg-secondary absolute top-0 left-0"></div>
+        <div class="text-display metric-num metallic-text mb-2" style="font-size:clamp(2.4rem,4vw,4rem);" data-count="98.7" data-suffix="%" data-decimals="1">0</div>
+        <div class="text-label-md text-on-surface-variant" style="font-size:0.72rem; letter-spacing:0.08em;">Client Retention Rate</div>
+      </div>
+      <div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/25 text-center relative overflow-hidden reveal">
+        <div class="w-full h-0.5 bg-tertiary absolute top-0 left-0"></div>
+        <div class="text-display metric-num metallic-text mb-2" style="font-size:clamp(2.4rem,4vw,4rem);" data-count="4.8" data-suffix="x" data-decimals="1">0</div>
+        <div class="text-label-md text-on-surface-variant" style="font-size:0.72rem; letter-spacing:0.08em;">Average ROI Multiple</div>
+      </div>
+      <div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/25 text-center relative overflow-hidden reveal">
+        <div class="w-full h-0.5 bg-primary-container absolute top-0 left-0"></div>
+        <div class="text-display metric-num metallic-text mb-2" style="font-size:clamp(2.4rem,4vw,4rem);" data-count="18" data-suffix="+">0</div>
+        <div class="text-label-md text-on-surface-variant" style="font-size:0.72rem; letter-spacing:0.08em;">Global Design Honors</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMPARISON ═══════════════════════════════════════ -->
+  <section class="py-24 px-6 md:px-12 max-w-5xl mx-auto border-t border-outline-variant/15">
+    <div class="text-center mb-12 reveal">
+      <span class="block text-primary tracking-widest uppercase mb-2" style="font-size:0.72rem; letter-spacing:0.22em;">The Difference</span>
+      <h2 class="text-headline-lg" style="font-size:clamp(2rem,4.5vw,3.25rem);">Nexora+ vs The Usual Suspects</h2>
+    </div>
+    <div class="rounded-3xl bg-surface-container-low/60 border border-outline-variant/25 overflow-hidden reveal glow-purple">
+      <div class="overflow-x-auto">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="nx">Nexora+</th>
+              <th>Typical Agency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="nx">Creative output</td><td class="nx">Bespoke cultural phenomena</td><td class="other">Recycled templates</td></tr>
+            <tr><td class="nx">AI &amp; tech depth</td><td class="nx">100% in-house AI lab</td><td class="other">Outsourced tooling</td></tr>
+            <tr><td class="nx">Strategy</td><td class="nx"><span class="tick material-symbols-outlined align-middle text-[18px]">check_circle</span> Data-modeled</td><td class="other"><span class="cross material-symbols-outlined align-middle text-[18px]">cancel</span> Gut-feel decks</td></tr>
+            <tr><td class="nx">Solutions</td><td class="nx"><span class="tick material-symbols-outlined align-middle text-[18px]">check_circle</span> Tailored to your DNA</td><td class="other"><span class="cross material-symbols-outlined align-middle text-[18px]">cancel</span> One-size-fits-all</td></tr>
+            <tr><td class="nx">Growth reporting</td><td class="nx"><span class="tick material-symbols-outlined align-middle text-[18px]">check_circle</span> Auditable ROI</td><td class="other"><span class="cross material-symbols-outlined align-middle text-[18px]">cancel</span> Vanity metrics</td></tr>
+            <tr><td class="nx">Pricing</td><td class="nx">Lean, honest packages</td><td class="other">Bloated retainers</td></tr>
+            <tr><td class="nx">Delivery</td><td class="nx"><span class="tick material-symbols-outlined align-middle text-[18px]">check_circle</span> Weeks</td><td class="other"><span class="cross material-symbols-outlined align-middle text-[18px]">cancel</span> Quarters</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ══════════════════════════════════════════════ -->
+  <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden" id="contact">
+    <div class="relative rounded-3xl p-10 md:p-20 bg-gradient-to-br from-surface-container-low via-surface-container-lowest to-surface-container-low border border-primary/35 shadow-[0_20px_70px_rgba(124,58,237,0.25)] text-center overflow-hidden reveal">
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary-container/20 rounded-full blur-[100px] pointer-events-none"></div>
+      <span class="text-primary uppercase tracking-[0.25em] mb-4 inline-block" style="font-size:0.7rem;">Step Into The Future</span>
+      <h2 class="text-display md:text-[72px] md:leading-[80px] metallic-text tracking-tight mb-6" style="font-size:clamp(2.6rem,7vw,4.5rem);">YOUR BRAND.<br/>OUR NEXT CREATION.</h2>
+      <p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed" style="color:rgba(229,225,231,0.66);">
+        Seven reasons to believe. One conversation to begin. Q2 &amp; Q3 onboarding now open for select projects.
+      </p>
+      <a class="cta-btn" href="mailto:hello@nexoraplus.com">
+        <span>Let's Build Something</span>
+        <span class="material-symbols-outlined text-[22px]">rocket_launch</span>
+      </a>
+      <div class="mt-8 text-outline" style="font-size:0.78rem; letter-spacing:0.08em;">
+        Direct Transmission: <a class="text-primary hover:underline" href="mailto:hello@nexoraplus.com">hello@nexoraplus.com</a> • Instant Project Inquiries
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-16 flex flex-col justify-between">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-primary to-secondary-container">
+              <img alt="Nexora+ Official Logo" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq2AxjVYWyz4qmPhQeXitFXyj4Xx87McXPg0Zwwii1R6yvNLR1-2IK4x9AqbHGYOcDencs3jlwL0Pz4xbinBHVrYx0qLFvz8pR3t1CxeEXfcpCU5BOfQ13nu4MMaFtFvjAVw7S1q_LLdHM_3-04C5wvTJT45wjlfr-VbIeuwAunGZPfD-kll7oYOqwY_jFz00L5U0EWwluDzsA4owmweCwUB7_L9b1ZQnEm8AKtIryqukmK2nSOkSGAE2jqvM81BPSEg" />
+            </div>
+            <span class="text-headline-md tracking-tight text-on-surface">Nexora<span class="text-primary-container">+</span></span>
+          </div>
+          <p class="text-body-sm text-on-surface-variant max-w-sm mb-6 leading-relaxed">Creative Technology &amp; Experiential Media Group. Fusing high-octane visual artistry, AI generative pipelines, and digital architectures worldwide.</p>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/20 text-outline" style="font-size:0.75rem;">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Jodhpur / Global • Active</span>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-label-lg text-on-surface mb-4" style="font-size:0.9rem;">Capabilities</h5>
+          <ul class="space-y-2.5">
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="index.html#services">AI Solutions</a></li>
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="index.html#services">Web Development</a></li>
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="index.html#services">Digital Marketing</a></li>
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="index.html#services">Branding &amp; 3D CGI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-label-lg text-on-surface mb-4" style="font-size:0.9rem;">Agency</h5>
+          <ul class="space-y-2.5">
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="index.html#manifesto">Manifesto</a></li>
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="index.html#work">Case Archives</a></li>
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="why-nexora.html">Why Nexora+?</a></li>
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="index.html#process">Our Process</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-label-lg text-on-surface mb-4" style="font-size:0.9rem;">Network</h5>
+          <ul class="space-y-2.5">
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="#">Twitter / X</a></li>
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="#">LinkedIn</a></li>
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="#">Instagram</a></li>
+            <li><a class="foot-link block" style="font-size:0.9rem;" href="#">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-outline-variant/15 flex flex-col sm:flex-row justify-between items-center gap-4 text-outline" style="font-size:0.75rem;">
+        <p>© 2025 Nexora+ Creative Technology &amp; Experiential Media Group. All rights reserved.</p>
+        <div class="flex space-x-6">
+          <a class="foot-link" href="#">Privacy Directive</a>
+          <a class="foot-link" href="#">Terms of Service</a>
+          <a class="foot-link" href="#">Neural Lab</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── SCROLL PROGRESS + NAV GLASS ──────────────────────
+    const progressBar = document.getElementById('progress-bar');
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = ((window.scrollY / max) * 100) + '%';
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ─── REVEAL ON SCROLL (staggered) ─────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const siblings = Array.from(entry.target.parentElement.children)
+          .filter((el) => el.classList.contains('reveal'));
+        const idx = siblings.indexOf(entry.target);
+        entry.target.style.transitionDelay = (Math.max(0, idx) * 90) + 'ms';
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+    // ─── 3D TILT + SPOTLIGHT ON CARDS ─────────────────────
+    document.querySelectorAll('.tilt').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;
+        const py = (e.clientY - r.top) / r.height;
+        card.style.setProperty('--mx', (px * 100) + '%');
+        card.style.setProperty('--my', (py * 100) + '%');
+        card.style.transform =
+          `perspective(900px) rotateY(${((px - 0.5) * 6).toFixed(2)}deg) rotateX(${((0.5 - py) * 6).toFixed(2)}deg) translateY(-4px)`;
+      });
+      card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+    });
+
+    // ─── ANIMATED METRIC COUNTERS ─────────────────────────
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        counterObserver.unobserve(el);
+        const end = parseFloat(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const decimals = parseInt(el.dataset.decimals || '0', 10);
+        const t0 = performance.now(), dur = 1800;
+        const tick = (now) => {
+          const p = Math.min((now - t0) / dur, 1);
+          el.textContent = (end * easeOut(p)).toFixed(decimals) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-count]').forEach((el) => counterObserver.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Source material & working files (not needed for deployment)
+*.zip
+*.pdf
+Screenshot*.png
+ChatGPT Image*.png
+WhatsApp Image*.jpeg
+723952722_*.jpg
+stitch_extracted/
+services.txt
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/
+
+# Dependencies / build artifacts
+node_modules/
+.vercel
