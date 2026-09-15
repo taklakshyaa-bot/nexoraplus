@@ -110,6 +110,9 @@
       --muted: #94a3b8;
     }
 
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    * { -webkit-tap-highlight-color: transparent; }
+
     body {
       background-color: var(--bg);
       color: var(--text);
@@ -572,7 +575,8 @@
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-    // ─── 3D TILT + SPOTLIGHT ON CARDS ─────────────────────
+    // ─── 3D TILT + SPOTLIGHT ON CARDS (fine pointers only — skips touch) ─
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     document.querySelectorAll('.tilt').forEach((card) => {
       card.addEventListener('pointermove', (e) => {
         const r = card.getBoundingClientRect();
@@ -585,6 +589,7 @@
       });
       card.addEventListener('pointerleave', () => { card.style.transform = ''; });
     });
+    }
 
     // ─── ANIMATED METRIC COUNTERS ─────────────────────────
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);

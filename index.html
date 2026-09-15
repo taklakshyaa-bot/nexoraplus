@@ -153,6 +153,17 @@
     .loader-bar { height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:99px; transition:width 0.1s linear; }
     .loader-pct { margin-top:1rem; font-size:0.85rem; color:var(--muted); letter-spacing:0.08em; }
 
+    /* ─── MOBILE/TABLET EXPERIENCE ───────────────────────── */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    * { -webkit-tap-highlight-color: transparent; }
+    @supports (height: 100dvh) {
+      #sticky-wrap { height: 100dvh; } /* fixes iOS Safari URL-bar jump */
+    }
+    @media (max-width: 768px) {
+      /* Shorter scrub distance = better pacing with thumb scrolling */
+      #scroll-section { height: 420vh; }
+    }
+
     /* ─── SCROLL SECTION ────────────────────────────────── */
     #scroll-section { position:relative; height:700vh; }
     #sticky-wrap {
@@ -489,6 +500,11 @@
     #services .group:hover::before { transform:skewX(-16deg) translateX(470%); }
 
     /* Icon glow burst */
+    @media (hover: none) {
+      /* Touch devices: no cursor glow, no tilt — cards stay flat & fast */
+      .svc-glow, .adv-spot, .work-sweep { display: none !important; }
+      #services .group, .adv-card, .work-card { transform: none !important; }
+    }
     .svc-burst { animation:svc-burst .65s cubic-bezier(.22,1,.36,1); }
     @keyframes svc-burst {
       0%   { box-shadow:0 0 0 0 rgba(183,109,255,.50), 0 0 0 0 rgba(221,183,255,.30); }
@@ -1735,6 +1751,7 @@
         glow.setAttribute('aria-hidden', 'true');
         card.appendChild(glow);
 
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         let raf = 0;
         card.addEventListener('pointerenter', () => {
           const glyph = card.querySelector(':scope > div .material-symbols-outlined');
@@ -1764,6 +1781,7 @@
           if (raf) { cancelAnimationFrame(raf); raf = 0; }
           card.style.transform = '';
         });
+        }
       });
 
       // Staggered 3D entrance
@@ -2235,6 +2253,7 @@
         if (running) requestAnimationFrame(tick);
       };
 
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       section.addEventListener('pointermove', (e) => {
         const r = section.getBoundingClientRect();
         tgtX = e.clientX - r.left; tgtY = e.clientY - r.top;
@@ -2245,6 +2264,7 @@
         layers.forEach(({ el }) => el.style.transform = '');
         if (spot) spot.style.opacity = '';
       });
+      }
 
       // ── Occasional card border sweeps ──
       const sweeps = cards.map((card) => {
