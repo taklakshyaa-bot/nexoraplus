@@ -1475,11 +1475,43 @@
   </div><!-- /#agency-content -->
 
   <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PRODUCTION ASSET FALLBACK: retry 404'd assets from CDN -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      var CDN = 'https://cdn.jsdelivr.net/gh/taklakshyaa-bot/nexoraplus@main/';
+      function fix(img) {
+        if (img.dataset.cdnFallback) return;
+        img.dataset.cdnFallback = '1';
+        var src = img.getAttribute('src') || '';
+        if (src.indexOf('assets/') !== 0) return;
+        var probe = new Image();
+        probe.onerror = function () { img.src = CDN + src; };
+        probe.src = src;
+      }
+      function run() { document.querySelectorAll('img').forEach(fix); }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+      new MutationObserver(function (muts) {
+        muts.forEach(function (m) {
+          if (m.type === 'attributes') fix(m.target);
+          for (var i = 0; i < m.addedNodes.length; i++) {
+            var n = m.addedNodes[i];
+            if (n.nodeType !== 1) continue;
+            if (n.tagName === 'IMG') fix(n);
+            else if (n.querySelectorAll) n.querySelectorAll('img').forEach(fix);
+          }
+        });
+      }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] });
+    })();
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
   <!-- SCROLL ANIMATION JAVASCRIPT                            -->
   <!-- ═══════════════════════════════════════════════════════ -->
   <script>
     const TOTAL_FRAMES  = 240;
     const FRAME_FOLDER  = './frames/';
+    const FRAME_CDN     = 'https://cdn.jsdelivr.net/gh/taklakshyaa-bot/nexoraplus@main/frames/';
     const FRAME_PREFIX  = 'ezgif-frame-';
     const FRAME_EXT     = '.jpg';
 
@@ -1525,7 +1557,10 @@
         if (loaded[n]) { resolve(n); return; }
         const img = new Image();
         img.onload = () => { images[n] = img; loaded[n] = true; loadedCount++; resolve(n); };
-        img.onerror = () => { loaded[n] = true; loadedCount++; resolve(n); };
+        img.onerror = () => {
+          if (!img.dataset.retried) { img.dataset.retried = '1'; img.src = FRAME_CDN + FRAME_PREFIX + frameNum(n) + FRAME_EXT; }
+          else { loaded[n] = true; loadedCount++; resolve(n); }
+        };
         img.src = framePath(n);
       });
     }

@@ -607,5 +607,36 @@
     }, { threshold: 0.6 });
     document.querySelectorAll('[data-count]').forEach((el) => counterObserver.observe(el));
   </script>
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PRODUCTION ASSET FALLBACK: retry 404'd assets from CDN -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      var CDN = 'https://cdn.jsdelivr.net/gh/taklakshyaa-bot/nexoraplus@main/';
+      function fix(img) {
+        if (img.dataset.cdnFallback) return;
+        img.dataset.cdnFallback = '1';
+        var src = img.getAttribute('src') || '';
+        if (src.indexOf('assets/') !== 0) return;
+        var probe = new Image();
+        probe.onerror = function () { img.src = CDN + src; };
+        probe.src = src;
+      }
+      function run() { document.querySelectorAll('img').forEach(fix); }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+      new MutationObserver(function (muts) {
+        muts.forEach(function (m) {
+          if (m.type === 'attributes') fix(m.target);
+          for (var i = 0; i < m.addedNodes.length; i++) {
+            var n = m.addedNodes[i];
+            if (n.nodeType !== 1) continue;
+            if (n.tagName === 'IMG') fix(n);
+            else if (n.querySelectorAll) n.querySelectorAll('img').forEach(fix);
+          }
+        });
+      }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] });
+    })();
+  </script>
+
 </body>
 </html>
